@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>mobiForge Web share API Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="share-container">
+    <button id="btn-share">Share</button>
+  </div>
+  
+<script>
+  window.addEventListener('load', function() {
+    if(!navigator.share) {
+      document.querySelector('.share-container').innerHTML = 'your browser does not support sharing';
+      return;
+    }
+
+    document.getElementById('btn-share').addEventListener('click', function() {
+      navigator.share({
+        title: 'Check out this watch !',
+        text: 'Its really cool',
+        url: 'https://www.google.co.in',
+      });
+    });
+  });
+
+</script>
+</body>
+</html>
